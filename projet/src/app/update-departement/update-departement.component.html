@@ -1,0 +1,55 @@
+<div class="container"> 
+    <div>
+        <h2>Modifier un departement :</h2>
+    </div>
+    <form>
+        <!-- ID du département (caché) -->
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Departement</label>
+            <input readonly type="text" [(ngModel)]="currentDepartement.idDepartement" name="idDepartment"
+                class="form-control">
+        </div>
+
+        <!-- Nom du département -->
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Departement</label>
+            <input type="text" [(ngModel)]="currentDepartement.nomDepartement" name="nomDepartement"
+                class="form-control">
+        </div>
+
+        <!-- Nombre d'employés -->
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Nombre d'employés</label>
+            <input type="number" [(ngModel)]="currentDepartement.nombreEmployee" name="nombreEmployee"
+                class="form-control">
+        </div>
+
+        <!-- Date d'affectation -->
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date Affectation</label>
+            <input type="date" [(ngModel)]="currentDepartement.dateAffectation" name="dateAffectation"
+                class="form-control">
+        </div>
+
+        <!-- Sélection du collège -->
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>College</label>
+            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updateColId">
+                <option *ngFor="let col of colleges " [value]="col.idcol">
+                    {{col.nomcol}}
+                </option>
+            </select>
+
+        </div>
+
+        <!-- Bouton de modification -->
+        <div class="mt-2">
+            <button type="submit" (click)="updateDepartement()" class="btn btn-success">Modifier</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+

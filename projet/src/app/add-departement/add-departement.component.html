@@ -1,0 +1,36 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Departement :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID departement</label>
+            <input type="text" [(ngModel)]="newDepartement.idDepartement" name="idDepartment" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom de departement</label>
+            <input type="text" [(ngModel)]="newDepartement.nomDepartement" name="nomDepartement" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Nombre d'employee</label>
+            <input type="number" [(ngModel)]="newDepartement.nombreEmployee" name="nombreEmployee" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date Affetation </label>
+            <input type="date" [(ngModel)]="newDepartement.dateAffectation" name="dateAffectation" class="form-control">
+        </div>
+       
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>College</label>
+            <select class="form-control form-control-lg" id="idcol" name="idcol" [(ngModel)]="newIdCol">
+                <option *ngFor="let col of colleges" [value]="col.idcol">
+                    {{col.nomcol}}
+                </option>
+            </select>
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="addDepartement()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

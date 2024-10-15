@@ -1,0 +1,15 @@
+<form>
+    <div [hidden]="ajout" >
+        <label>ID College</label>
+        <input type="text" [(ngModel)]="college.idcol" name="idcollege" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom College</label>
+        <input type="text" [(ngModel)]="college.nomcol" name="nomCollege" class="form-control"
+            placeholder="Entrez un nom de college...">
+    </div>
+    <div class="mt-2">
+        <button type="submit" [disabled]="!college.nomcol" class="btn btn-success"
+            (click)="saveCollege()">{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+    </div>
+ </form>

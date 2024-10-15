@@ -1,0 +1,36 @@
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Departement Tapant</label>
+
+        <!-- <input type="text" class="form-control" [(ngModel)]="nomDepartement" name="nomProduit" class="form-control">
+        <button type="submit" (click)="rechercheDepartement()" class="btn btn-primary mb-2 ml-2">Rechercher</button> -->
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        <!-- <button type="submit" (click)="rechercheDepartement()" class="btn btn-primary mb-2 ml-2">Rechercher</button>  -->
+        </div>
+    </form>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Departement</th>
+                        <th>Nombre d Employee</th>
+                        <th>Date Affectation </th>
+                        <th>College</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let depar of departements | searchFilter: searchTerm " >
+                    <tr>
+                        <td>{{depar.idDepartement}}</td>
+                        <td>{{depar.nomDepartement}}</td>
+                        <td>{{depar.nombreEmployee}}</td>
+                        <td>{{depar.dateAffectation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{depar.college?.nomcol}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

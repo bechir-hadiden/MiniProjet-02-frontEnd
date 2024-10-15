@@ -1,0 +1,30 @@
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <app-update-college  [college]="updatedCol" 
+    (collegeUpdated)= "collegeUpdated($event)" > </app-update-college>
+</div>
+
+
+
+
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom College</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let col of colleges">
+                    <tr>
+                        <td>{{col.idcol}}</td>
+                        <td>{{col.nomcol}}</td>
+                        <td><a class="btn btn-success" (click)="updateCol(col)">Editer</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

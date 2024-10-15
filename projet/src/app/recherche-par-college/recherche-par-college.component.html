@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+                <label>College </label>
+                <select class="form-control form-control-lg" id="idcol" name="idcol" [(ngModel)]="idcollege"  (change)="onChange()">
+                    <option *ngFor="let col of colleges" value={{col.idcol}}>
+                        {{col.nomcol}}
+                    </option>
+                </select>
+            </div>
+            
+        
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date Création</th>
+                        <th>College</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let depar of departements">
+                        <td>{{depar.idDepartement}}</td>
+                        <td>{{depar.nomDepartement}}</td>
+                        <td>{{depar.nombreEmployee}}</td>
+                        <td>{{depar.dateAffectation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{depar.college?.nomcol}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

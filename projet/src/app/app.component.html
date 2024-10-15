@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Gestion des Departements</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <div>
+    <nav id="navbar">
+      <ul class="menu">
+        <li id="trigram" tabindex="-1" title="CLICK ME!&#10;I WORK WITHOUT JS :)">
+          <div>&#9776;</div>				
+        </li>
+        <div id="responsive-menu">
+          <ul class="menu">
+            <li class="menu-option">
+              <p routerLink="/departement">Home</p>
+            </li>
+            <li class="menu-option">
+              <p>Departement <strong>v</strong></p>
+              <ul id="products">
+                <li *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-departement" >Ajouter</li>
+                <li  routerLink="/rechercheparnom">Recherche Par Nom</li>
+                <li routerLink="/rechercheparcollege" >rechercheparcollege</li>
+                <li routerLink="/listCollege">Gestion des collegess</li>
+              </ul>
+            </li>
+            <li id="sign-in">
+              <p *ngIf="!authService.isloggedIn"  routerLink = "/login" >login</p>
+            </li> 
+            <li id="sign-up">
+              <p *ngIf="authService.isloggedIn" (click) = "onLogout()" >{{authService.loggedUser}}</p>
+
+            </li>
+            <li id="sign-up">
+              <p *ngIf="authService.isloggedIn" (click) = "onLogout()" >Deconnecter</p>
+
+            </li>
+           
+            
+          </ul>
+        </div>
+      </ul>
+    </nav>
+  </div>
+  
+
+</body>
+
+</html>
+<router-outlet></router-outlet>
